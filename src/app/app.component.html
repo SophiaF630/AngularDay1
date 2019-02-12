@@ -4,3 +4,12 @@
 
 <app-picture [message]="title"></app-picture>
 <app-pic image="https://superawesomevectors.com/wp-content/uploads/2017/05/pikachu-pokemon-vector-800x566.jpg"></app-pic>
+
+<div>
+    <span class="cart-item" *ngFor="let c of cart">
+        <img [src]="c.image">
+        {{c.label}}
+    </span>
+</div>
+
+<app-list [inventories]="items" (onItemSelected)="processItem($event)"></app-list>

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Item} from './model';
+
+const FRUITS = ['acorn_squash', 'apple', 'bell_pepper'];
 
 @Component({
   selector: 'app-root',
@@ -8,4 +11,21 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'AngularDay1';
   subtitle = "Hi";
+
+  items: Item[] = [];
+  cart: Item[] = [];
+  constructor(){
+    for (let i in FRUITS)
+      this.items.push({
+        key: parseInt(i),
+        label: FRUITS[i],
+        image: `/assets/fruits/${FRUITS[i]}.png`
+
+      })
+      console.log(this.items);
+  }
+
+  processItem(key:number){
+    this.cart.push(this.items[key]);
+  }
 }
